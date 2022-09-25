@@ -7,7 +7,7 @@ class Server {
 
   listen(port = 1883) {
     this.server.listen(port, function () {
-      console.log('server started and listening on port ', port);
+      console.log('server started and listening on port', port);
     });
   }
 }

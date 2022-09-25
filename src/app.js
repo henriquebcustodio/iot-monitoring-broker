@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const Server = require('./server');
 const aedes = require('aedes')();
 const { authenticate } = require('./authentication');
