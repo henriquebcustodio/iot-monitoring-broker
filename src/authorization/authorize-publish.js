@@ -1,9 +1,8 @@
 const authorizePublish = (client, packet, callback) => {
-  const pattern = new RegExp(`\/devices\/${client.topic_id}`)
-  const match = packet.topic.match(pattern)
+  const allowedTopic = `/devices/${client.topic_id}`
 
-  if (!match) {
-    const error = new Error(`This device can only publish to /devices/${client.topic_id}`)
+  if (packet.topic !== allowedTopic) {
+    const error = new Error(`This device can only publish to ${allowedTopic}`)
     return callback(error)
   }
 
