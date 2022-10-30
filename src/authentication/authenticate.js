@@ -1,6 +1,11 @@
 const authenticateDevice = require('../requests/authenticateDevice')
 
 const authenticate = async (client, username, password, callback) => {
+  if (username === process.env.AUTH_API_TOKEN) {
+    client.topic_id = '#'
+    return callback(null, true)
+  }
+
   try {
     const response = await authenticateDevice(username)
 
